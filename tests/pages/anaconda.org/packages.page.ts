@@ -8,16 +8,15 @@ import {
 } from 'vasu-playwright-utils';
 
 const packgesviewall = "(//*[@class='right']//a[@class='text-white'])[1]";
-const headerP = "//strong[normalize-space()='packages']";
-const headerPP = "//span[@class='long-breadcrumb']";
-const headerF = "//strong[normalize-space()='files']";
-const headerI = "//strong[normalize-space()='installers']";
-const headerH = "//strong[normalize-space()='history']";
+const Pkg_header = "//strong[normalize-space()='packages']";
+const Files_header = "//strong[normalize-space()='files']";
+const installer_header = "//strong[normalize-space()='installers']";
+const History_header = "//strong[normalize-space()='history']";
 //const checkbox1 = "(//*[@id='repo-packages-table']//input[@name='package'])[1]";
-const packagestablink = "(//a[normalize-space()='Packages'])";
-const filestablink = "(//a[normalize-space()='Files'])[1]";
-const installertablink = "(//a[normalize-space()='Install Instructions'])[1]";
-const historytablink = "(//a[normalize-space()='History'])[1]";
+const packages_tab = "(//a[normalize-space()='Packages'])";
+const files_tab = "(//a[normalize-space()='Files'])[1]";
+const installer_tab = "(//a[normalize-space()='Install Instructions'])[1]";
+const history_tab = "(//a[normalize-space()='History'])[1]";
 const table = "//table[@id='repo-packages-table']";
 //Filter
 const Type_all = "//a[normalize-space()='Type: all']";
@@ -29,24 +28,25 @@ const SP = "//a[normalize-space()='Standard Python']";
 const Conda = "//a[normalize-space()='conda']";
 const SR = "//a[normalize-space()='Standard R']";
 
+const headerPP = "//span[@class='long-breadcrumb']";
 //const Access = "//a[normalize-space()='Access: all']";
 //const Label = "//a[normalize-space()='Label: all']";
 
 export async function navigateToAllpackages() {
   await clickAndNavigate(packgesviewall);
-  await expectElementToHaveText(headerP, 'packages');
+  await expectElementToHaveText(Pkg_header, 'packages');
 }
 export async function switchtabs() {
-  await click(filestablink);
-  await expectElementToHaveText(headerF, 'files');
-  await click(installertablink);
-  await expectElementToHaveText(headerI, 'installers');
-  await click(historytablink);
-  await expectElementToHaveText(headerH, 'history');
+  await click(files_tab);
+  await expectElementToHaveText(Files_header, 'files');
+  await click(installer_tab);
+  await expectElementToHaveText(installer_header, 'installers');
+  await click(history_tab);
+  await expectElementToHaveText(History_header, 'history');
 }
 export async function GetallPackages() {
-  await click(packagestablink);
-  await expectElementToHaveText(headerP, 'packages');
+  await click(packages_tab);
+  await expectElementToHaveText(Pkg_header, 'packages');
   const noofpackages = await getLocator(table).locator('tr').count();
   console.log('Rows:  ' + noofpackages);
   // print names of all packages in package Page
@@ -64,8 +64,8 @@ export async function GetallPackages() {
   }
 }
 export async function SelectFilters() {
-  await click(packagestablink);
-  await expectElementToHaveText(headerP, 'packages');
+  await click(packages_tab);
+  await expectElementToHaveText(Pkg_header, 'packages');
   const noofpackages = await getLocator(table).locator('tr').count();
   console.log('Rows:  ' + noofpackages);
   if (noofpackages > 0) {

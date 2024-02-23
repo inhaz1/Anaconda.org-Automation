@@ -27,30 +27,9 @@ test.describe('Dashboard @Regression', () => {
     await dashboardP.navigateToActivityviewAll();
     await goBack();
   });
-
-  /*test('Testing notebooks', async () => {
+  test('Testing package block', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
-    await dashboardP.navigateToAllnotebooks();
+    await dashboardP.checkPackagesBlock();
   });
-  test('Testing environments', async () => {
-    await landing.navigateToLoginPage();
-    await LoginPage.loginWithValidCredentials();
-    await dashboardP.navigateToAllenvironments();
-  });
-  test('Testing projects', async () => {
-    await landing.navigateToLoginPage();
-    await LoginPage.loginWithValidCredentials();
-    await dashboardP.navigateToAllprojects();
-  });
-  test('Testing Favorites', async () => {
-    await landing.navigateToLoginPage();
-    await LoginPage.loginWithValidCredentials();
-    await dashboardP.navigateToAllfavorites();
-  });
-  test('Testing ActivityFeed', async () => {
-    await landing.navigateToLoginPage();
-    await LoginPage.loginWithValidCredentials();
-    await dashboardP.navigateToActivityviewAll();
-  });*/
 });

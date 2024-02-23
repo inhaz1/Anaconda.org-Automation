@@ -13,13 +13,11 @@ import {
   switchToDefaultPage,
   waitForElementToBeStable,
 } from 'vasu-playwright-utils';
-
-//const SigninBtn =() =>  getLocator("//a[normalize-space()='Sign In']");
+//Rida' Code
 const signIn = () => "//a[normalize-space()='Sign In']";
 const search = () => '#welcome-search-input';
 const URL = 'https://anaconda.org';
 const signinpage = "//h2[normalize-space()='Sign in to Anaconda.org']";
-
 //header
 const logo = "img[alt='Anaconda.org']";
 const Habout = ".v2-link.v2-nav-item[href='https://www.anaconda.com/about-us']";
