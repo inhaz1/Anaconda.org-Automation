@@ -67,7 +67,7 @@ export async function SelectFilters() {
   await click(packages_tab);
   await expectElementToHaveText(Pkg_header, 'packages');
   const noofpackages = await getLocator(table).locator('tr').count();
-  console.log('Rows:  ' + noofpackages);
+  console.log('Total Pkgs:  ' + noofpackages);
   if (noofpackages > 0) {
     await waitForElementToBeStable(Type_all);
     await click(Type_all);

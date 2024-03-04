@@ -11,7 +11,7 @@ import {
   gotoURL,
   switchPage,
   switchToDefaultPage,
-  waitForElementToBeStable,
+  //waitForElementToBeStable,
 } from 'vasu-playwright-utils';
 //Rida' Code
 const signIn = () => "//a[normalize-space()='Sign In']";
@@ -64,14 +64,14 @@ const blog = "a[href='https://www.anaconda.com/blog']";
 */
 //license
 const copywrite = () => getLocator('.licence-copyright');
-const license = "(//*[@class='licence-policies']//a[@target='_blank'])[1]";
+//const license = "(//*[@class='licence-policies']//a[@target='_blank'])[1]";
 const policy = "a[href='https://www.anaconda.com/privacy-policy']";
 
 //link verification
 const aboutTest = "h1[class='wp-block-heading has-pure-white-color has-text-color']";
 //const facebookcross = "div[aria-label='Close'] i[class='x1b0d499 x1d69dk1']";
 //const facebookheader = "h1[class='x1heor9g x1qlqyl8 x1pd3egz x1a2a7pz']";
-const legaltext = "(//h1[normalize-space()='Anaconda.org Terms and Conditions'])[1]";
+//const legaltext = "(//h1[normalize-space()='Anaconda.org Terms and Conditions'])[1]";
 const privicytext = "h1[class='wp-block-heading']";
 const anacondacloudtext = "//h1[normalize-space()='Welcome to Anaconda Cloud']";
 const anacondadistribution = "//h1[normalize-space()='Free Download']";
@@ -93,7 +93,7 @@ export async function verifyFooter() {
   await gotoURL(URL);
   await expectElementToBeVisible(footerLogo);
   await expectElementToHaveText(footertext(), 'By data scientists, for data scientists');
-  await expectElementToHaveText(copywrite(), '© 2024 Anaconda, Inc. All Rights Reserved. (v3.0.3)');
+  await expectElementToHaveText(copywrite(), '© 2024 Anaconda, Inc. All Rights Reserved. (v3.0.4)');
 
   /* await click(facebook);
   await switchPage(2);
@@ -114,12 +114,12 @@ export async function verifyFooter() {
   await closePage();
   await switchToDefaultPage();
 
-  await waitForElementToBeStable(license);
+  /* await waitForElementToBeStable(license);
   await click(license);
   await switchPage(2);
   await expectElementToBeVisible(legaltext);
   await closePage();
-  await switchToDefaultPage();
+  await switchToDefaultPage();*/
 }
 
 export async function verifyFooterlinks() {

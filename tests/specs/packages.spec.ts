@@ -17,7 +17,7 @@ test.describe('Dashboard @Regression', () => {
     await Packages.switchtabs();
   });*/
 
-  test('Testing packages', async () => {
+  test('Testing package filters (conda,py,R)', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
     await Packages.navigateToAllpackages();

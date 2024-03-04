@@ -11,7 +11,7 @@ import { goBack } from 'vasu-playwright-utils';
 */
 //=================================================== packages testcase ========================================//
 test.describe('Dashboard @Regression', () => {
-  test('Testing packages', async () => {
+  test('Testing navigation of ViewAll(pkgs,envs,notebooks etc)', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
     await dashboardP.navigateToAllpackages();

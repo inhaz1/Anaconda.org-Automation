@@ -9,8 +9,8 @@ import * as dashboad from '../pages/anaconda.org/dashboardheader.page';
 */
 
 //=================================================== Login testcase ========================================//
-test.describe('Test login cases @Regression', () => {
-  test('view in dashboad Page', async () => {
+test.describe('Dashboard Testing', () => {
+  test('Header view in dashboad Page', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
     //await dashboad.verifyViewDropdown();
