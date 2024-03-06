@@ -6,7 +6,7 @@ import {
   Signup_eminvalidCredentials,
   Signup_newCredentials,
   Signup_oldunCredentials,
-} from '@testdata/sauce-demo-test-data';
+} from '@testdata/inha-anaconda.org-test-data';
 
 test.describe('Tests for successful, unsuccessful Signup @smoke', () => {
   test.beforeEach('Navigating to orgPage', async () => {

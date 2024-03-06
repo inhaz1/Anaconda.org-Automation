@@ -7,8 +7,10 @@ import {
   getFrameLocator,
   getLocator,
   gotoURL,
+  waitForElementToBeStable,
+  waitForElementToBeVisible,
 } from 'vasu-playwright-utils';
-import { Signup_newCredentials } from '@testdata/sauce-demo-test-data';
+import { OrgUrl, Signup_newCredentials } from '@testdata/inha-anaconda.org-test-data';
 
 const SigninBtn = () => getLocator("//a[normalize-space()='Sign In']");
 const SignupBtn = () => getLocator("//a[normalize-space()='Register for an account.']");
@@ -18,16 +20,16 @@ const EmailField = () => getLocator("//input[@id='email']");
 const ConfirmPassField = () => getLocator("//input[@id='confirm_password']");
 const RegisterBtn = () => getLocator("//button[@type='submit']");
 const TermsField = () => getLocator("//input[@id='accept_terms']");
-//const RobotField = () => getLocator("//div[@class='recaptcha-checkbox-border']");
-const F1 = "//h2[normalize-space()='Sign in to Anaconda.org']";
-const F2 = "//h2[normalize-space()='Register for Anaconda.org']";
+const reCAPTCHAF = () => getLocator("//div[@class='g-recaptcha']");
+const F1 = "//h2[normalize-space()='Sign in to qa']";
+const F2 = "//h2[normalize-space()='Register for qa']";
 
 export async function Registerclick() {
-  await gotoURL('https://anaconda.org/');
+  await gotoURL(OrgUrl.url);
   await click(SigninBtn());
-  await expectElementToHaveText(getLocator(F1), 'Sign in to Anaconda.org');
+  await expectElementToHaveText(getLocator(F1), 'Sign in to qa');
   await click(SignupBtn());
-  await expectElementToHaveText(getLocator(F2), 'Register for Anaconda.org');
+  await expectElementToHaveText(getLocator(F2), 'Register for qa');
 }
 export async function Signup(cred = Signup_newCredentials) {
   await fill(UsernameField(), cred.username);
@@ -35,8 +37,9 @@ export async function Signup(cred = Signup_newCredentials) {
   await fill(PasswordField(), cred.password);
   await fill(ConfirmPassField(), cred.confirm_password);
   await check(TermsField());
+  await waitForElementToBeStable(reCAPTCHAF());
+  await waitForElementToBeVisible(reCAPTCHAF());
   await click(getFrameLocator('[title="reCAPTCHA"]').getByRole('checkbox', { name: "I'm not a robot" }));
-  // await this.page.frameLocator('[title="reCAPTCHA"]').getByRole('checkbox', { name: 'I\'m not a robot' }).click();
   await click(RegisterBtn());
 }
 export async function Signupwithoutcheckboxes(cred = Signup_newCredentials) {

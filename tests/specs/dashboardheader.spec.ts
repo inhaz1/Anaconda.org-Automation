@@ -15,5 +15,6 @@ test.describe('Dashboard Testing', () => {
     await LoginPage.loginWithValidCredentials();
     //await dashboad.verifyViewDropdown();
     await dashboad.verifyHelpDropdown();
+    await dashboad.verifyViewHeaderelementsDynamically();
   });
 });

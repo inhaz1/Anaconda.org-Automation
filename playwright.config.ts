@@ -126,7 +126,7 @@ export default defineConfig({
       // dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1920, height: 1080 },
+        //viewport: { width: 1920, height: 1080 },
         // storageState: STORAGE_STATE_LOGIN,
         launchOptions: {
           args: ['--disable-web-security'],

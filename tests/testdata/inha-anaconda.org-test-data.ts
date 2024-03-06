@@ -1,13 +1,8 @@
-export const sauceDemoCredentials = {
-  username: 'standard_user',
-  password: 'secret_sauce',
-};
-export const failureLoginCredentials = {
-  username: 'standard_user',
-  password: 'invalid_password',
+export const OrgUrl = {
+  url: 'https://qa.dot-org.anacondaconnect.com/',
 };
 export const ValidCredentials = {
-  username: 'inha.zaheen',
+  username: 'inha',
   password: 'inha3619',
 };
 export const InvalidCredentials = {
@@ -16,10 +11,9 @@ export const InvalidCredentials = {
 };
 export const Signup_newCredentials = {
   username: 'abcdef',
-  email: 'abcdef@gmail.com',
+  email: 'inha.zaheen92@yopmail.com',
   password: 'abcd1234',
   confirm_password: 'abcd1234',
-  Stext: 'User Already exists',
 };
 export const Signup_pwmismatchCredentials = {
   username: 'abcd_12',
@@ -36,7 +30,7 @@ export const Signup_eminvalidCredentials = {
   Stext: 'User Already exists',
 };
 export const Signup_oldunCredentials = {
-  username: 'abcd',
+  username: 'inha',
   email: 'abcd_123@gmail.com',
   password: 'abcd1234',
   confirm_password: 'abcd1234',
@@ -44,7 +38,7 @@ export const Signup_oldunCredentials = {
 };
 export const Signup_oldemCredentials = {
   username: 'abcd',
-  email: 'abcd_123@gmail.com',
+  email: 'izaheen@anaconda.com',
   password: 'abcd1234',
   confirm_password: 'abcd1234',
   Stext: 'Email Already exists',

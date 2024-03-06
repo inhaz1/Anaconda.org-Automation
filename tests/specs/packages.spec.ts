@@ -10,17 +10,17 @@ import * as Packages from '../pages/anaconda.org/packages.page';
 */
 //=================================================== packages testcase ========================================//
 test.describe('Dashboard @Regression', () => {
-  /*test('Testing all tabs', async () => {
+  test('Testing all tabs', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
     await Packages.navigateToAllpackages();
-    await Packages.switchtabs();
-  });*/
+    await Packages.SelectFilters();
+  });
 
   test('Testing package filters (conda,py,R)', async () => {
     await landing.navigateToLoginPage();
     await LoginPage.loginWithValidCredentials();
     await Packages.navigateToAllpackages();
-    await Packages.SelectFilters();
+    await Packages.GetallPackages();
   });
 });

@@ -1,6 +1,6 @@
 import { click, clickAndNavigate, fill } from 'vasu-playwright-utils';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
-import { InvalidCredentials, ValidCredentials } from '@testdata/sauce-demo-test-data';
+import { InvalidCredentials, ValidCredentials } from '@testdata/inha-anaconda.org-test-data';
 
 const userName = '#username';
 const password = '#password';

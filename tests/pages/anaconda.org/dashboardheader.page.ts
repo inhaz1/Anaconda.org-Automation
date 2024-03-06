@@ -5,6 +5,7 @@ import {
   expectElementToBeHidden,
   expectElementToBeVisible,
   expectElementToHaveText,
+  getLocator,
   goBack,
   switchPage,
   switchToDefaultPage,
@@ -12,7 +13,7 @@ import {
 } from 'vasu-playwright-utils';
 //View Dropdown
 const dashboard = "//h2[normalize-space()='My Anaconda Landscape']";
-const view = "//label[@data-toggle-submenu='view']/..";
+const view = "//label[normalize-space()='View']";
 const landscape = "//a[normalize-space()='Landscape']";
 const favorites = "//a[contains(text(),'Favorites')]";
 const packages = "//a[@class='v2-link v2-nav-item'][normalize-space()='Packages']";
@@ -24,6 +25,7 @@ const packageText = "//strong[normalize-space()='packages']";
 const notebooText = "//strong[normalize-space()='notebooks']";
 const environmentsText = "//strong[normalize-space()='environments']";
 const projectText = "//strong[normalize-space()='projects']";
+//const Viewdropdownlist = "//div[@class='v2-nav-menu v2-down v2-submenu-toggle']";
 //Help Dropdown
 const help = "//label[normalize-space()='Help']/..";
 const viewdoc = "//a[normalize-space()='View Docs']";
@@ -84,4 +86,14 @@ export async function verifyHelpDropdown() {
   await clickAndNavigate(reportbug);
   await expectElementToBeVisible(reportbugText);
   await goBack();
+}
+export async function verifyViewHeaderelementsDynamically() {
+  await waitForElementToBeStable(view);
+  await click(view);
+  const sub_menu = await getLocator(view).allTextContents();
+  for (const i of sub_menu[0].split('\n')) {
+    if (i.trim().length > 0) {
+      console.log('item name:' + i.trim());
+    }
+  }
 }

@@ -13,13 +13,13 @@ import {
   switchToDefaultPage,
   //waitForElementToBeStable,
 } from 'vasu-playwright-utils';
+import { OrgUrl } from '@testdata/inha-anaconda.org-test-data';
 //Rida' Code
 const signIn = () => "//a[normalize-space()='Sign In']";
 const search = () => '#welcome-search-input';
-const URL = 'https://anaconda.org';
-const signinpage = "//h2[normalize-space()='Sign in to Anaconda.org']";
+const signinpage = "//h2[normalize-space()='Sign in to qa']";
 //header
-const logo = "img[alt='Anaconda.org']";
+const logo = "img[alt='qa']";
 const Habout = ".v2-link.v2-nav-item[href='https://www.anaconda.com/about-us']";
 const Hanaconda = ".v2-link.v2-nav-item[href='https://www.anaconda.com/pricing']";
 const help = ".v2-link.v2-nav-item[href='https://docs.anaconda.com/free/anacondaorg/user-guide/']";
@@ -79,21 +79,21 @@ const anacondaPricing = "//h1[normalize-space()='Plans and Pricing']";
 const HelpTest = '//h1[1]';
 
 export async function navigateToLoginPage() {
-  await gotoURL(URL);
+  await gotoURL(OrgUrl.url);
   await clickAndNavigate(signIn());
   await expectElementToBeVisible(signinpage);
 }
 
 export async function navigateToSearchPage() {
-  await gotoURL(URL);
+  await gotoURL(OrgUrl.url);
   await fillAndEnter(search(), '', { timeout: 5000 });
 }
 
 export async function verifyFooter() {
-  await gotoURL(URL);
+  await gotoURL(OrgUrl.url);
   await expectElementToBeVisible(footerLogo);
   await expectElementToHaveText(footertext(), 'By data scientists, for data scientists');
-  await expectElementToHaveText(copywrite(), '© 2024 Anaconda, Inc. All Rights Reserved. (v3.0.4)');
+  await expectElementToHaveText(copywrite(), '© 2024 Anaconda, Inc. All Rights Reserved. (v3.0.5rc1)');
 
   /* await click(facebook);
   await switchPage(2);
@@ -123,7 +123,7 @@ export async function verifyFooter() {
 }
 
 export async function verifyFooterlinks() {
-  await gotoURL(URL);
+  await gotoURL(OrgUrl.url);
   await clickAndNavigate(AbousUs);
   await expectElementToBeVisible(aboutTest);
   await goBack();
@@ -155,7 +155,7 @@ export async function verifyFooterlinks() {
 }
 
 export async function verifyHeader() {
-  await gotoURL(URL, { timeout: MAX_TIMEOUT });
+  await gotoURL(OrgUrl.url, { timeout: MAX_TIMEOUT });
   await expectElementToBeVisible(logo);
   await click(logo);
 
@@ -191,7 +191,7 @@ export async function verifyHeader() {
 }
 
 export async function UI() {
-  await gotoURL(URL, { timeout: MAX_TIMEOUT });
+  await gotoURL(OrgUrl.url, { timeout: MAX_TIMEOUT });
   await expectElementToHaveText(
     heading(),
     'Anaconda.org allows anyone to distribute their conda and standard Python packages to the world.',

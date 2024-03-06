@@ -10,7 +10,7 @@ import {
   InValidSearchAfterLogin,
   InValidSearchBeforLogin,
   ValidSearch,
-} from '@testdata/sauce-demo-test-data';
+} from '@testdata/inha-anaconda.org-test-data';
 //Arooj' Code
 const search = () => '#welcome-search-input';
 const searchafter = () => '#navbar-search-input';
